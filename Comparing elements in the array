@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i,j;
+    int sum, left, right;
+    unsigned int P, N;
+    unsigned int V[100000];
+    scanf("%d", &P);
+    for (i=0; i<P; i++) {
+        scanf("%d", &N);
+        for (j=0; j<N; j++){
+            scanf("%d", &V[j]);
+        }
+        if (N==1) {
+            printf("YES\n");
+            continue;
+        }
+        else {
+            left = 0;
+            right = N - 1;
+            sum = 0;
+            while (left != right) {
+                if (sum < 0) {
+                    sum += V[right];
+                    right--;
+                }
+                else if (sum > 0) {
+                    sum -= V[left];
+                    left++;
+                }
+                else if (sum == 0) {
+                    if (V[left] > V[right]) {
+                        sum = V[right];
+                        right--;
+                    }
+                    else {
+                        sum = 0 - V[left];
+                        left++;
+                    }
+                }
+            }
+            if (sum == 0) printf("YES\n");
+            else printf("NO\n");
+        }
+    }}
