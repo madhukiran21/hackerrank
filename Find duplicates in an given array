@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList <Integer>a=new ArrayList<Integer>();
+        int arr[] =new int[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]==arr[j]){
+                    a.add(arr[i]);
+                }
+                    
+                
+            }
+        }
+        Collections.sort(a);
+        for(int x=0;x<a.size();x++)
+        System.out.print(a.get(x)+" ");
+        
+    }
+}
